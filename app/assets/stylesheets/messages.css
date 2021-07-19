@@ -1,0 +1,39 @@
+.wrapper{
+  display: flex;
+  height: 100vh;
+}
+
+/* サイドバー */
+ .side_bar{
+  background-color : #253141;
+  width: 300px;
+ }
+ .side_header{
+   height: 100px;
+   padding: 0 20px;
+ }
+ .chat_room{
+   background-color: #2f3e51;
+   height: calc(100vh - 100px);
+   padding: 0 20px;
+ }
+
+ /* メインチャット */
+ .main_chat{
+  background-color: #ffffff;
+  width: calc(100vw - 300px);
+ }
+ .main_header{
+   height: 100px;
+   padding: 0 40px;
+ }
+ .chat_space{
+   background-color: #fafafa;
+   height: calc(100vh - 100px - 90px);
+   padding-top: 46px 40px 0;
+ }
+ .message{
+   background-color: #dddddd;
+   height: 90px;
+   padding: 20px 40px;
+ }
