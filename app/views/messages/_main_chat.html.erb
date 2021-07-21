@@ -1,30 +1,21 @@
 <div class="main_header">
-  <div class="chat_outline">hogehuga</div>
-  <div class="chat_end"><a href="#">チャットを終了する</a></div>
+  <div class="chat_outline"><%= @room.name %></div>
+  <div class="chat_end">
+   <%= link_to "チャットを終了する" , room_path(@room) ,method: :delete %>
+  </div>
 </div> 
+
 <div class="chat_space">
-  <div class="chat">
-    <div class="chat_top">
-     <div class="chat_user_name">Tom</div>
-     <div class="chat_date">2020/3/31(Wed) 12:43:30</div>
-    </div> 
-    <div class="chat_message">おはよう</div>
-  </div>
-  <div class="chat">
-    <div class="chat_top">
-     <div class="chat_user_name">Sim</div>
-     <div class="chat_date">2020/3/31(Wed) 12:43:30</div>
-    </div> 
-    <div class="chat_message">おはよう</div>
-  </div>
+  <%= render partial: "message", collection: @messages %>
 </div>
-<div class="message">
-   <div class="comment">
-    <input type="text"  placeholder="type a message" class="comment_sentence">
-    <lavel class="comment_image">
-     <span class="image_file">画像</span>
-     <input type="file" class="hidden">
+
+<%= form_with model: [@room, @message], class: "message", local: true do |f| %>
+  <div class="comment">
+   <%= f.text_field :content, class: "comment_sentence" , placeholder: "type a message" %>
+    <lavel class="comment_image" >
+    <span class="image_file">画像</span>
+     <%= f.file_field :immage, class: "hidden" %>
     </lavel>
    </div>
-   <input type="submit"  value="送信" class="submit_btn">
-</div>
+   <%= f.submit "送信", class:"submit_btn" %>
+<% end %>
